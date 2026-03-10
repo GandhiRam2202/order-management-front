@@ -21,113 +21,113 @@ export default function Navbar() {
   return (
 
     <>
-     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 
-<div className="container">
+        <div className="container">
 
-{/* LOGO */}
-<Link className="navbar-brand" to="/">Shop</Link>
-
-
-{/* RIGHT SIDE ICONS */}
-<div className="d-flex align-items-center gap-3">
+          {/* LOGO */}
+          <Link className="navbar-brand" to="/">Shop</Link>
 
 
-{/* PROFILE IMAGE */}
-<li className="nav-item d-block d-lg-none">
-<button
-className="btn p-0 border-0"
-data-bs-toggle="offcanvas"
-data-bs-target="#profileDrawer"
-onClick={()=>setView("profile")}
->
-<img
-src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-alt="profile"
-style={{
-width:"35px",
-height:"35px",
-borderRadius:"50%",
-objectFit:"cover"
-}}
-/>
-</button>
-</li>
+          {/* RIGHT SIDE ICONS */}
+          <div className="d-flex align-items-center gap-3">
+
+
+            {/* PROFILE IMAGE */}
+            <li className="nav-item d-block d-lg-none">
+              <button
+                className="btn p-0 border-0"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#profileDrawer"
+                onClick={() => setView("profile")}
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                  alt="profile"
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    borderRadius: "50%",
+                    objectFit: "cover"
+                  }}
+                />
+              </button>
+            </li>
 
 
 
-{/* HAMBURGER */}
-<button
-className="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#menu"
->
-<span className="navbar-toggler-icon"></span>
-</button>
+            {/* HAMBURGER */}
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#menu"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
 
-</div>
+          </div>
 
 
-{/* COLLAPSE MENU */}
-<div className="collapse navbar-collapse" id="menu">
+          {/* COLLAPSE MENU */}
+          <div className="collapse navbar-collapse" id="menu">
 
-<ul className="navbar-nav ms-auto">
+            <ul className="navbar-nav ms-auto">
 
-<li className="nav-item">
-<Link className="nav-link" to="/">All</Link>
-</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/">All</Link>
+              </li>
 
-<li className="nav-item">
-<Link className="nav-link" to="/category/mobile">Mobile</Link>
-</li>
-<li className="nav-item">
-<Link className="nav-link" to="/category/smartwatch">Smart Watch</Link>
-</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/category/mobile">Mobile</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/category/smartwatch">Smart Watch</Link>
+              </li>
 
-<li className="nav-item">
-<Link className="nav-link" to="/category/charger">Charger</Link>
-</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/category/charger">Charger</Link>
+              </li>
 
-<li className="nav-item">
-<Link className="nav-link" to="/category/airpods">Airpods</Link>
-</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/category/airpods">Airpods</Link>
+              </li>
 
-<li className="nav-item">
-<Link className="nav-link" to="/category/headphones">Headphones</Link>
-</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/category/headphones">Headphones</Link>
+              </li>
 
-<li className="nav-item">
-<Link className="nav-link" to="/category/neckband">Neckband</Link>
-</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/category/neckband">Neckband</Link>
+              </li>
 
-<li className="nav-item d-none d-lg-block">
-<button
-className="btn p-0 border-0"
-data-bs-toggle="offcanvas"
-data-bs-target="#profileDrawer"
-onClick={()=>setView("profile")}
->
-<img
-src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-alt="profile"
-style={{
-width:"35px",
-height:"35px",
-borderRadius:"50%",
-objectFit:"cover"
-}}
-/>
-</button>
-</li>
+              <li className="nav-item d-none d-lg-block">
+                <button
+                  className="btn p-0 border-0"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#profileDrawer"
+                  onClick={() => setView("profile")}
+                >
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                    alt="profile"
+                    style={{
+                      width: "35px",
+                      height: "35px",
+                      borderRadius: "50%",
+                      objectFit: "cover"
+                    }}
+                  />
+                </button>
+              </li>
 
-</ul>
+            </ul>
 
-</div>
+          </div>
 
-</div>
+        </div>
 
-</nav>
+      </nav>
 
 
       {/* Drawer */}
