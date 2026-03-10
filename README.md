@@ -1,9 +1,8 @@
 # Order Management System - Frontend
 
-A modern **React.js frontend application** for an **Order Management System**.
-This application allows users to browse products, place orders, track order status, and allows admins to manage orders and products.
+A modern **React.js frontend application** for an **Order Management System** where users can browse products, place orders, and track their order status while admins can manage products and orders.
 
-The frontend communicates with the backend API built using **Node.js, Express, and MongoDB**.
+This frontend communicates with the backend built using **Node.js, Express, MongoDB, and Socket.IO**.
 
 ---
 
@@ -14,11 +13,15 @@ The frontend communicates with the backend API built using **Node.js, Express, a
 * User Registration
 * User Login
 * Browse Products
+* View Product Categories
 * Place Orders
 * Cancel Orders
 * Return Orders
 * View Order History
 * Track Order Status
+* Real-time order updates
+
+---
 
 ## 🛠 Admin Features
 
@@ -28,62 +31,79 @@ The frontend communicates with the backend API built using **Node.js, Express, a
 * Create Products
 * Edit Products
 * Delete Products
-* View Order Statistics (Charts)
+* Order Statistics Dashboard
+* Today's Orders Chart
 
 ---
 
 # 🏗 Tech Stack
 
-Frontend Framework:
+### Frontend
 
 * **React.js**
 * **React Router DOM**
 
-HTTP Requests:
+### API Communication
 
 * **Axios**
 
-Real-Time Updates:
+### Real-time Updates
 
 * **Socket.IO Client**
 
-Charts:
+### Charts
 
 * **Chart.js**
 
-Styling:
+### Styling
 
-* **CSS / Tailwind / Bootstrap (depending on your setup)**
+* **CSS**
 
 ---
 
 # 📁 Project Structure
 
 ```
-frontend
-│
-├── src
+src
 │
 ├── components
-│   ├── navbar
-│   ├── products
-│   ├── orders
-│   └── admin
+│   │
+│   ├── admin
+│   │   └── AdminNavbar.jsx
+│   │
+│   ├── user
+│   │   ├── Navbar.jsx
+│   │   └── ProductCard.jsx
+│   │
+│   └── ProtectedRoute.jsx
 │
 ├── pages
-│   ├── Login.jsx
-│   ├── Register.jsx
-│   ├── Home.jsx
-│   ├── ProductList.jsx
-│   ├── MyOrders.jsx
-│   └── AdminDashboard.jsx
+│   │
+│   ├── admin
+│   │   ├── Chart.jsx
+│   │   ├── Orders.jsx
+│   │   ├── Products.jsx
+│   │   └── TodayOrdersChart.jsx
+│   │
+│   ├── auth
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── ForgotPassword.jsx
+│   │   └── ResetPassword.jsx
+│   │
+│   └── user
+│       ├── Home.jsx
+│       ├── Category.jsx
+│       ├── MyOrders.jsx
+│       └── Profile.jsx
 │
 ├── services
 │   └── api.js
 │
 ├── App.jsx
 ├── main.jsx
-└── package.json
+├── App.css
+└── index.css
 ```
 
 ---
@@ -93,13 +113,13 @@ frontend
 ## 1️⃣ Clone Repository
 
 ```
-git clone https://github.com/yourusername/order-management-frontend.git
+git clone https://github.com/GandhiRam2202/your-repo-name.git
 ```
 
-## 2️⃣ Go to Project Folder
+## 2️⃣ Navigate to Project
 
 ```
-cd order-management-frontend
+cd frontend
 ```
 
 ## 3️⃣ Install Dependencies
@@ -114,7 +134,7 @@ npm install
 npm run dev
 ```
 
-Application will run on:
+Application will run at:
 
 ```
 http://localhost:5173
@@ -130,18 +150,22 @@ Make sure the backend server is running:
 http://localhost:3000
 ```
 
-Update the API base URL if needed inside:
+API configuration file:
 
 ```
 src/services/api.js
 ```
 
-Example:
+Example configuration:
 
-```
+```javascript
+import axios from "axios";
+
 const API = axios.create({
   baseURL: "http://localhost:3000/api"
-})
+});
+
+export default API;
 ```
 
 ---
@@ -165,57 +189,77 @@ Cancelled
 Returned
 ```
 
+Admins update the order status from the admin dashboard.
+
 ---
 
-# 🖥 Admin Dashboard
+# ⚡ Real-Time Order Updates
 
-The admin dashboard includes:
+This project uses **Socket.IO** to provide real-time updates.
 
-### 📦 Orders Management
+Examples:
 
-Tabs for viewing orders by status:
-
-* Placed Orders
-* Confirmed Orders
-* In Transit Orders
-* Out For Delivery
-* Delivered Orders
-* Cancelled Orders
-* Returned Orders
-
-### 🛍 Product Management
-
-Admin can:
-
-* Create product
-* Update product
-* Delete product
-
-### 📊 Analytics
-
-Charts showing:
-
-* Total Orders
-* Delivered Orders
-* Cancelled Orders
-* Pending Orders
+* Admin confirms an order → User sees the update instantly
+* Order moves to **Out For Delivery** → User dashboard updates automatically
+* Delivered orders update in real-time
 
 ---
 
 # 🔐 Authentication
 
-The application uses **JWT authentication**.
+Authentication uses **JWT tokens**.
 
 After login:
 
 * Token is stored in **localStorage**
-* Token is sent in API headers
+* Token is sent in API request headers
 
 Example:
 
 ```
-Authorization: Bearer token
+Authorization: Bearer <token>
 ```
+
+Protected routes are handled using:
+
+```
+components/ProtectedRoute.jsx
+```
+
+---
+
+# 📊 Admin Dashboard
+
+The admin dashboard includes:
+
+### 📦 Orders Management
+
+Tabs for order statuses:
+
+* Placed
+* Confirmed
+* In Transit
+* Out For Delivery
+* Delivered
+* Cancelled
+* Returned
+
+### 🛍 Product Management
+
+Admins can:
+
+* Add products
+* Update products
+* Delete products
+
+### 📈 Analytics
+
+Charts available:
+
+* Total Orders
+* Delivered Orders
+* Cancelled Orders
+* Today's Orders
 
 ---
 
@@ -223,12 +267,13 @@ Authorization: Bearer token
 
 Possible enhancements:
 
-* Payment Integration
-* Delivery tracking
-* Push notifications
-* Product search and filters
+* Online Payment Integration
+* Delivery Tracking
+* Push Notifications
+* Product Search
+* Filters
 * Wishlist
-* Mobile app version
+* Mobile App Version (React Native)
 
 ---
 
