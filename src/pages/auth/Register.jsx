@@ -5,25 +5,25 @@ import API from "../../services/api"
 import toast from "react-hot-toast"
 import { useState } from "react"
 
-export default function Register(){
+export default function Register() {
 
   const navigate = useNavigate()
 
-  const [showPassword,setShowPassword] = useState(false)
-  const [showConfirmPassword,setShowConfirmPassword] = useState(false)
-  const [loading,setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const initialValues = {
-    name:"",
-    email:"",
-    password:"",
-    confirmPassword:""
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
   }
 
   const validationSchema = Yup.object({
 
     name: Yup.string()
-      .min(3,"Name must be at least 3 characters")
+      .min(3, "Name must be at least 3 characters")
       .required("Name is required"),
 
     email: Yup.string()
@@ -31,39 +31,39 @@ export default function Register(){
       .required("Email is required"),
 
     password: Yup.string()
-      .min(6,"Password must be at least 6 characters")
+      .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
 
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"),null],"Passwords must match")
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm your password")
 
   })
 
 
-  const handleSubmit = async(values)=>{
+  const handleSubmit = async (values) => {
 
-    try{
+    try {
 
       setLoading(true)
 
       const data = {
-        name:values.name,
-        email:values.email,
-        password:values.password
+        name: values.name,
+        email: values.email,
+        password: values.password
       }
 
-      await API.post("/auth/register",data)
+      await API.post("/auth/register", data)
 
       toast.success("Registration successful! Please login.")
 
       navigate("/login")
 
-    }catch(err){
+    } catch (err) {
 
       toast.error("Registration failed")
 
-    }finally{
+    } finally {
 
       setLoading(false)
 
@@ -73,7 +73,7 @@ export default function Register(){
 
 
 
-  return(
+  return (
 
     <div className="container-fluid vh-100">
 
@@ -84,7 +84,7 @@ export default function Register(){
 
         <div className="col-lg-6 d-none d-lg-flex align-items-center justify-content-center bg-dark text-white">
 
-          <div style={{maxWidth:"420px"}}>
+          <div style={{ maxWidth: "420px" }}>
 
             <h1 className="mb-4">Create Your Account</h1>
 
@@ -108,7 +108,7 @@ export default function Register(){
 
         <div className="col-lg-6 d-flex align-items-center justify-content-center">
 
-          <div style={{width:"350px"}}>
+          <div style={{ width: "350px" }}>
 
             <h3 className="mb-4 text-center">Register</h3>
 
@@ -153,7 +153,7 @@ export default function Register(){
                 <div className="input-group mb-2">
 
                   <Field
-                    type={showPassword ? "text":"password"}
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     className="form-control"
                     placeholder="Password"
@@ -162,9 +162,9 @@ export default function Register(){
                   <button
                     type="button"
                     className="btn btn-outline-secondary"
-                    onClick={()=>setShowPassword(!showPassword)}
+                    onClick={() => setShowPassword(!showPassword)}
                   >
-                    <i className={`bi ${showPassword ? "bi-eye-slash":"bi-eye"}`}></i>
+                    <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}></i>
                   </button>
 
                 </div>
@@ -181,7 +181,7 @@ export default function Register(){
                 <div className="input-group mb-2">
 
                   <Field
-                    type={showConfirmPassword ? "text":"password"}
+                    type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword"
                     className="form-control"
                     placeholder="Confirm Password"
@@ -190,9 +190,9 @@ export default function Register(){
                   <button
                     type="button"
                     className="btn btn-outline-secondary"
-                    onClick={()=>setShowConfirmPassword(!showConfirmPassword)}
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   >
-                    <i className={`bi ${showConfirmPassword ? "bi-eye-slash":"bi-eye"}`}></i>
+                    <i className={`bi ${showConfirmPassword ? "bi-eye-slash" : "bi-eye"}`}></i>
                   </button>
 
                 </div>

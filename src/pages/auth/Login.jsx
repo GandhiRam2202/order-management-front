@@ -8,8 +8,8 @@ import { useState } from "react"
 export default function Login() {
 
   const navigate = useNavigate()
-  const [showPassword,setShowPassword] = useState(false)
-  const [loading,setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const initialValues = {
     email: "",
@@ -140,7 +140,7 @@ export default function Login() {
                   <button
                     type="button"
                     className="btn btn-outline-secondary"
-                    onClick={()=>setShowPassword(!showPassword)}
+                    onClick={() => setShowPassword(!showPassword)}
                   >
                     <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}></i>
                   </button>

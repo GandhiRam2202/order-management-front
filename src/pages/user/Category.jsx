@@ -3,46 +3,46 @@ import { useEffect, useState } from "react"
 import API from "../../services/api"
 import ProductCard from "../../components/user/ProductCard"
 
-export default function Category(){
+export default function Category() {
 
-const { category } = useParams()
+    const { category } = useParams()
 
-const [products,setProducts] = useState([])
+    const [products, setProducts] = useState([])
 
-useEffect(()=>{
+    useEffect(() => {
 
-API.get("/products")
-.then(res=>{
+        API.get("/products")
+            .then(res => {
 
-const filtered = res.data.filter(
-p => p.category?.toLowerCase() === category.toLowerCase()
-)
+                const filtered = res.data.filter(
+                    p => p.category?.toLowerCase() === category.toLowerCase()
+                )
 
-setProducts(filtered)
+                setProducts(filtered)
 
-})
+            })
 
-},[category])
+    }, [category])
 
-return(
+    return (
 
-<div className="container mt-4">
+        <div className="container mt-4">
 
-<h2 className="mb-4">{category}</h2>
+            <h2 className="mb-4">{category}</h2>
 
-<div className="row">
+            <div className="row">
 
-{products.map(product=>(
-<ProductCard
-key={product._id}
-product={product}
-/>
-))}
+                {products.map(product => (
+                    <ProductCard
+                        key={product._id}
+                        product={product}
+                    />
+                ))}
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-)
+    )
 
 }

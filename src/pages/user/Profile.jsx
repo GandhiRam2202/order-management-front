@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 
-export default function Profile(){
+export default function Profile() {
 
   const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ export default function Profile(){
 
   }
 
-  return(
+  return (
 
     <div className="container mt-5">
 

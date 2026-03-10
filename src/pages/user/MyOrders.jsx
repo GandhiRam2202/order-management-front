@@ -3,31 +3,31 @@ import API from "../../services/api"
 import socket from "../../socket"
 import toast from "react-hot-toast"
 
-export default function MyOrders(){
+export default function MyOrders() {
 
-  const [orders,setOrders] = useState([])
-  const [loading,setLoading] = useState(true)
+  const [orders, setOrders] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const [showModal,setShowModal] = useState(false)
-  const [actionType,setActionType] = useState("")
-  const [selectedOrder,setSelectedOrder] = useState(null)
+  const [showModal, setShowModal] = useState(false)
+  const [actionType, setActionType] = useState("")
+  const [selectedOrder, setSelectedOrder] = useState(null)
 
 
-  const loadOrders = async()=>{
+  const loadOrders = async () => {
 
-    try{
+    try {
 
       const res = await API.get("/orders/my-orders")
 
       const sortedOrders = res.data.sort(
-        (a,b)=> new Date(b.createdAt) - new Date(a.createdAt)
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       )
 
       setOrders(sortedOrders)
 
       setLoading(false)
 
-    }catch(err){
+    } catch (err) {
 
       console.log(err)
       setLoading(false)
@@ -37,15 +37,15 @@ export default function MyOrders(){
   }
 
 
-  const cancelOrder = async(id)=>{
+  const cancelOrder = async (id) => {
 
-    try{
+    try {
 
       await API.put(`/orders/cancel/${id}`)
       loadOrders()
       toast.success("Order cancelled successfully")
 
-    }catch(err){
+    } catch (err) {
 
       console.log(err)
       toast.error("Failed to cancel order")
@@ -56,31 +56,31 @@ export default function MyOrders(){
   }
 
 
-  const returnOrder = async(id)=>{
+  const returnOrder = async (id) => {
 
-    try{
+    try {
 
       await API.put(`/orders/return/${id}`)
       loadOrders()
-     toast.success("Order return initiated successfully") 
+      toast.success("Order return initiated successfully")
 
-    }catch(err){
+    } catch (err) {
 
       console.log(err)
-      toast.error("Failed to initiate return")  
+      toast.error("Failed to initiate return")
 
     }
 
   }
 
 
-  const confirmAction = async()=>{
+  const confirmAction = async () => {
 
-    if(actionType === "Cancel"){
+    if (actionType === "Cancel") {
       await cancelOrder(selectedOrder)
     }
 
-    if(actionType === "return"){
+    if (actionType === "return") {
       await returnOrder(selectedOrder)
     }
 
@@ -89,25 +89,25 @@ export default function MyOrders(){
   }
 
 
-  useEffect(()=>{
+  useEffect(() => {
 
     loadOrders()
 
-    socket.on("orderUpdate",()=>{
+    socket.on("orderUpdate", () => {
       loadOrders()
     })
 
-    return ()=>{
+    return () => {
       socket.off("orderUpdate")
     }
 
-  },[])
+  }, [])
 
 
 
-  const getBadgeColor=(status)=>{
+  const getBadgeColor = (status) => {
 
-    switch(status){
+    switch (status) {
 
       case "Placed":
         return "secondary"
@@ -163,10 +163,10 @@ export default function MyOrders(){
               src={order.productImage}
               alt={order.productName}
               style={{
-                width:"80px",
-                height:"80px",
-                objectFit:"cover",
-                borderRadius:"5px"
+                width: "80px",
+                height: "80px",
+                objectFit: "cover",
+                borderRadius: "5px"
               }}
             />
 
@@ -188,8 +188,8 @@ export default function MyOrders(){
                 Status :
                 <span className={`badge bg-${getBadgeColor(order.status)} ms-2`}>
                   {order.status
-                    .replace(/_/g," ")
-                    .replace(/\b\w/g,(c)=>c.toUpperCase())
+                    .replace(/_/g, " ")
+                    .replace(/\b\w/g, (c) => c.toUpperCase())
                   }
                 </span>
               </p>
@@ -198,21 +198,21 @@ export default function MyOrders(){
               {/* Cancel Button */}
 
               {order.status !== "Delivered" &&
-               order.status !== "Cancelled" &&
-               order.status !== "Returned" && (
+                order.status !== "Cancelled" &&
+                order.status !== "Returned" && (
 
-                <button
-                  className="btn btn-sm btn-danger mt-1"
-                  onClick={()=>{
-                    setSelectedOrder(order._id)
-                    setActionType("Cancel")
-                    setShowModal(true)
-                  }}
-                >
-                  Cancel
-                </button>
+                  <button
+                    className="btn btn-sm btn-danger mt-1"
+                    onClick={() => {
+                      setSelectedOrder(order._id)
+                      setActionType("Cancel")
+                      setShowModal(true)
+                    }}
+                  >
+                    Cancel
+                  </button>
 
-              )}
+                )}
 
 
               {/* Return Button */}
@@ -221,7 +221,7 @@ export default function MyOrders(){
 
                 <button
                   className="btn btn-sm btn-warning mt-1"
-                  onClick={()=>{
+                  onClick={() => {
                     setSelectedOrder(order._id)
                     setActionType("return")
                     setShowModal(true)
@@ -248,7 +248,7 @@ export default function MyOrders(){
 
         <div
           className="modal fade show"
-          style={{display:"block",background:"rgba(0,0,0,0.5)"}}
+          style={{ display: "block", background: "rgba(0,0,0,0.5)" }}
         >
 
           <div className="modal-dialog modal-dialog-centered">
@@ -263,7 +263,7 @@ export default function MyOrders(){
 
                 <button
                   className="btn-close"
-                  onClick={()=>setShowModal(false)}
+                  onClick={() => setShowModal(false)}
                 ></button>
 
               </div>
@@ -280,7 +280,7 @@ export default function MyOrders(){
 
                 <button
                   className="btn btn-secondary"
-                  onClick={()=>setShowModal(false)}
+                  onClick={() => setShowModal(false)}
                 >
                   No
                 </button>

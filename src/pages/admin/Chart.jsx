@@ -276,7 +276,7 @@ export default function Chart() {
                                 <h6 className="mb-1">🏆 {p._id}</h6>
 
                                 <h4 className="mb-0">{p.totalSold}</h4>
-                                
+
                                 <small className="text-muted">Top Selling</small>
 
                             </div>

@@ -26,7 +26,7 @@ import ResetPassword from "./pages/auth/ResetPassword";
 function App() {
   return (
     <BrowserRouter>
-     <Toaster position="top-right" />
+      <Toaster position="top-right" />
 
       <Routes>
 
@@ -125,7 +125,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-   
+
 
       </Routes>
 
