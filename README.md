@@ -88,7 +88,7 @@ This frontend communicates with the backend built using **Node.js, Express, Mong
 
 ## Add Product order list
 
-![Admin](./src/screenshots/addproducts.png)
+![Admin](./src/screenshots/addproduct.png)
 
 ## Orders Chart
 
