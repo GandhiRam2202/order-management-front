@@ -40,7 +40,7 @@ This frontend communicates with the backend built using **Node.js, Express, Mong
 
 ## Home Page
 
-![Home](./screenshots/login.png)
+![Home](./src/screenshots/login.png)
 
 ## Login Page
 
