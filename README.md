@@ -36,6 +36,24 @@ This frontend communicates with the backend built using **Node.js, Express, Mong
 
 ---
 
+# 📸 Screenshots
+
+## Home Page
+
+![Home](./screenshots/login.png)
+
+## Login Page
+
+![Login](./screenshots/register.png)
+
+## Orders Page
+
+![Orders](./screenshots/forgotpassword.png)
+
+## Admin Dashboard
+
+![Admin](./screenshots/resetpassword.png)
+
 # 🏗 Tech Stack
 
 ### Frontend
