@@ -3,7 +3,7 @@
 # Project Live Link [Netlify](https://grp-order-management.netlify.app/)
 
 # Admin Login
-# Admin : Admin@shop.com
+# Mail : admin@shop.com
 # Password : adminadmin
 
 A modern **React.js frontend application** for an **Order Management System** where users can browse products, place orders, and track their order status while admins can manage products and orders.
