@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://order-management-back-j1pm.onrender.com/api",
   headers: {
     "x-api-key": import.meta.env.VITE_API_KEY
   }
