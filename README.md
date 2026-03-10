@@ -38,21 +38,85 @@ This frontend communicates with the backend built using **Node.js, Express, Mong
 
 # 📸 Screenshots
 
-## Home Page
-
-![Home](./src/screenshots/login.png)
-
 ## Login Page
 
-![Login](./screenshots/register.png)
+![Login](./src/screenshots/login.png)
 
-## Orders Page
+## Register Page
 
-![Orders](./screenshots/forgotpassword.png)
+![Login](./src/screenshots/register.png)
 
-## Admin Dashboard
+## Forgot Password Page
 
-![Admin](./screenshots/resetpassword.png)
+![Forgot Password](./src/screenshots/forgotpassword.png)
+
+## Reset Password
+
+![Reset Password](./src/screenshots/resetpassword.png)
+
+## Admin Home page
+
+![Admin](./src/screenshots/allorders.png)
+
+## Placed order list
+
+![Admin](./src/screenshots/placed.png)
+
+## Confirmed order list
+
+![Admin](./src/screenshots/confirmed.png)
+
+## IN Transit order list
+
+![Admin](./src/screenshots/intransit.png)
+
+## Out For Deliver order list
+
+![Admin](./src/screenshots/outfordelivery.png)
+
+## Delivered order list
+
+![Admin](./src/screenshots/delivered.png)
+
+## Cancelled order list
+
+![Admin](./src/screenshots/cancelled.png)
+
+## Returned order list
+
+![Admin](./src/screenshots/returned.png)
+
+## Add Product order list
+
+![Admin](./src/screenshots/addproducts.png)
+
+## Orders Chart
+
+![Admin](./src/screenshots/orderschart.png)
+
+## Product Chart
+
+![Admin](./src/screenshots/productschart.png)
+
+## Today Orders Chart
+
+![Admin](./src/screenshots/todaychart.png)
+
+## Today Orders Graph
+
+![Admin](./src/screenshots/todaygraph.png)
+
+## User Home page
+
+![User](./src/screenshots/usersidesite.png)
+
+## User Profile page
+
+![User](./src/screenshots/userprofile.png)
+
+## User Orders page
+
+![User](./src/screenshots/myorders.png)
 
 # 🏗 Tech Stack
 
